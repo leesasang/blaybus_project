@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./theme-boot.js"></script>
+    <title>버그도 기능이다. - 홈</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      (function () {
+        const url = new URL(window.location.href);
+        const skip = url.searchParams.get("skipLoading") === "1";
+        if (skip) return;
+        if (!sessionStorage.getItem("fromLoading")) {
+          window.location.replace("loading.html");
+        } else {
+          sessionStorage.removeItem("fromLoading");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <button class="menuToggle" type="button" aria-label="메뉴 열기">
+          <span class="menuToggleIcon"><span></span></span>
+        </button>
+        <div class="title">
+          <strong>버그도 기능이다.</strong>
+          <span>홈 · 귀여운 동물 게시판</span>
+        </div>
+      </header>
+
+      <div class="layoutRow">
+        <aside class="sideNav" aria-label="카테고리">
+          <ul class="sideNavList">
+            <li><a class="sideNavLink active" href="./home.html"><span class="ico">⌂</span><span class="label">홈</span></a></li>
+            <li><a class="sideNavLink" href="./search.html"><span class="ico">⌕</span><span class="label">탐색</span></a></li>
+            <li><a class="sideNavLink" href="./create.html?skipLoading=1"><span class="ico">＋</span><span class="label">만들기</span></a></li>
+            <li><a class="sideNavLink" href="./challenges.html?skipLoading=1"><span class="ico">🏁</span><span class="label">도전과제</span></a></li>
+            <li><a class="sideNavLink" href="./account.html?skipLoading=1"><span class="ico">☺</span><span class="label">내정보</span></a></li>
+          </ul>
+        </aside>
+
+        <main class="page" aria-label="홈 피드">
+          <div class="sectionTitleRow">
+            <h2>카테고리</h2>
+            <a href="./board.html?board=trending&skipLoading=1">더보기</a>
+          </div>
+          <div class="hscroll" id="categories"></div>
+
+          <div class="sectionTitleRow" style="margin-top:16px">
+            <h2>게시판</h2>
+            <a href="./board.html?board=all&skipLoading=1">전체</a>
+          </div>
+          <div class="feedList" id="boards"></div>
+        </main>
+      </div>
+    </div>
+
+    <script src="./common.js"></script>
+    <script src="./home.js"></script>
+  </body>
+</html>
+

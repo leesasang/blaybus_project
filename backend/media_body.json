@@ -1,0 +1,21 @@
+﻿{
+  "user_id": "7eccc67e-7137-4a56-9786-c56fdce0ebcc",
+  "project_id": "22ccd314-55bf-48c7-9e7f-6e3d98130ada",
+  "job_id": null,
+  "media_type": "image",
+  "origin_type": "upload",
+  "filename": "test.png",
+  "original_filename": "my_test.png",
+  "content_type": "image/png",
+  "size_bytes": 123456,
+  "storage_provider": "firebase",
+  "storage_path": "projects/sample/images/test.png",
+  "public_url": "https://example.com/test.png",
+  "thumbnail_url": "https://example.com/test-thumb.png",
+  "status": "uploaded",
+  "width": 1024,
+  "height": 1024,
+  "duration_seconds": null,
+  "prompt_text": null,
+  "error_message": null
+}

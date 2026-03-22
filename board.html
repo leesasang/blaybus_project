@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./theme-boot.js"></script>
+    <title>버그도 기능이다. - 게시판</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <button class="menuToggle" type="button" aria-label="메뉴 열기">
+          <span class="menuToggleIcon"><span></span></span>
+        </button>
+        <div class="title">
+          <strong>버그도 기능이다.</strong>
+          <span id="boardTitle">게시판</span>
+        </div>
+      </header>
+
+      <div class="layoutRow">
+        <aside class="sideNav" aria-label="카테고리">
+          <ul class="sideNavList">
+            <li><a class="sideNavLink" href="./home.html?skipLoading=1"><span class="ico">⌂</span><span class="label">홈</span></a></li>
+            <li><a class="sideNavLink" href="./search.html?skipLoading=1"><span class="ico">⌕</span><span class="label">탐색</span></a></li>
+            <li><a class="sideNavLink" href="./create.html?skipLoading=1"><span class="ico">＋</span><span class="label">만들기</span></a></li>
+            <li><a class="sideNavLink" href="./challenges.html?skipLoading=1"><span class="ico">🏁</span><span class="label">도전과제</span></a></li>
+            <li><a class="sideNavLink" href="./account.html?skipLoading=1"><span class="ico">☺</span><span class="label">내정보</span></a></li>
+          </ul>
+        </aside>
+
+        <main class="page" aria-label="게시판">
+          <div class="sectionTitleRow">
+            <h2 id="boardSubtitle">추천 영상</h2>
+          </div>
+          <div class="videosGrid" id="videos"></div>
+        </main>
+      </div>
+    </div>
+
+    <script src="./common.js"></script>
+    <script src="./state.js"></script>
+    <script src="./board.js"></script>
+  </body>
+</html>
+

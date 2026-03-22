@@ -1,0 +1,25 @@
+# 환경·비밀
+backend/.env
+.env
+.env.local
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# 로컬 저장소(생성 미디어)
+backend/storage/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.tmp

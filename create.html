@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./theme-boot.js"></script>
+    <title>버그도 기능이다. - 만들기</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <button class="menuToggle" type="button" aria-label="메뉴 열기">
+          <span class="menuToggleIcon"><span></span></span>
+        </button>
+        <div class="title">
+          <strong>버그도 기능이다.</strong>
+          <span>만들기 · AI와 채팅으로 제작</span>
+        </div>
+        <button class="ghost" id="exportBtn" type="button" disabled>내보내기</button>
+      </header>
+
+      <div class="layoutRow">
+        <aside class="sideNav" aria-label="카테고리">
+          <ul class="sideNavList">
+            <li><a class="sideNavLink" href="./home.html?skipLoading=1"><span class="ico">⌂</span><span class="label">홈</span></a></li>
+            <li><a class="sideNavLink" href="./search.html?skipLoading=1"><span class="ico">⌕</span><span class="label">탐색</span></a></li>
+            <li><a class="sideNavLink active" href="./create.html"><span class="ico">＋</span><span class="label">만들기</span></a></li>
+            <li><a class="sideNavLink" href="./challenges.html?skipLoading=1"><span class="ico">🏁</span><span class="label">도전과제</span></a></li>
+            <li><a class="sideNavLink" href="./account.html?skipLoading=1"><span class="ico">☺</span><span class="label">내정보</span></a></li>
+          </ul>
+        </aside>
+
+        <div class="createWorkspace" aria-label="만들기">
+          <section class="steps" aria-label="제작 단계">
+            <button class="chip active" type="button" data-step="storyboard">
+              <span class="dot"></span>텍스트→스토리보드
+            </button>
+            <button class="chip" type="button" data-step="image">
+              <span class="dot"></span>텍스트→이미지
+            </button>
+            <button class="chip" type="button" data-step="video">
+              <span class="dot"></span>텍스트→영상
+            </button>
+          </section>
+
+          <main class="chat" id="chat" aria-label="채팅">
+            <div class="msgRow ai">
+              <div class="bubble">
+                <p>
+                  만들고 싶은 영상의 목적/플랫폼/길이를 알려줘. 예:
+                  “유튜브 쇼츠 15초, 신제품 광고”.
+                </p>
+                <div class="meta">AI · 10:21</div>
+              </div>
+            </div>
+
+            <div class="msgRow me">
+              <div class="bubble">
+                <p>유튜브 쇼츠 15초, 카페 신메뉴(딸기라떼) 광고. 밝고 상큼한 느낌!</p>
+                <div class="meta">나 · 10:21</div>
+              </div>
+            </div>
+
+            <div class="msgRow ai">
+              <div class="bubble">
+                <p>
+                  좋아. 먼저 스토리보드를 6컷으로 제안할게. 마음에 들면 “수정” 또는 “확정”이라고
+                  말해줘.
+                </p>
+
+                <div class="resultCard" role="group" aria-label="스토리보드 결과">
+                  <header>
+                    <span>스토리보드(초안)</span>
+                    <span>6컷</span>
+                  </header>
+                  <div class="body">
+                    <p class="resultText">
+                      1) 얼음컵 클로즈업 → 2) 딸기 시럽 드롭 → 3) 우유가 채워지며 핑크 그라데이션 → 4)
+                      토핑(딸기) → 5) 한 모금 마시는 컷 → 6) 로고+CTA “지금 매장에서!”
+                    </p>
+                    <div class="btnRow">
+                      <button class="btn" type="button" id="reviseStoryboardBtn">수정 요청</button>
+                      <button class="btn primary" type="button" id="confirmStoryboardBtn">
+                        확정 → 이미지 단계
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="meta">AI · 10:22</div>
+              </div>
+            </div>
+          </main>
+
+          <section class="composer" aria-label="메시지 입력">
+            <div class="createActions">
+              <button class="pillBtn primary" id="completeCreate" type="button">만들기 1회 완료(테스트)</button>
+            </div>
+            <div class="quick" aria-label="빠른 프롬프트">
+              <button type="button" data-q="광고 15초">광고 15초</button>
+              <button type="button" data-q="유튜브 쇼츠">유튜브 쇼츠</button>
+              <button type="button" data-q="감성 브이로그 톤">감성 브이로그 톤</button>
+              <button type="button" data-q="한국어 내레이션 포함">내레이션 포함</button>
+            </div>
+            <div class="inputRow">
+              <textarea id="msg" placeholder="AI에게 요청을 입력하세요…" rows="1"></textarea>
+              <button class="send" id="send" type="button" aria-label="전송">↥</button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="./common.js"></script>
+    <script src="./state.js"></script>
+    <script src="./api.js"></script>
+    <script src="./create.js"></script>
+    <script>
+      document.getElementById("completeCreate")?.addEventListener("click", () => {
+        window.BugSiteState.increment("createCount", 1);
+        alert("만들기 카운트 +1 (도전과제 진행도가 올라갑니다)");
+      });
+    </script>
+  </body>
+</html>
+

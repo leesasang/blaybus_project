@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./theme-boot.js"></script>
+    <title>버그도 기능이다. - 내정보</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <button class="menuToggle" type="button" aria-label="메뉴 열기">
+          <span class="menuToggleIcon"><span></span></span>
+        </button>
+        <div class="title">
+          <strong>버그도 기능이다.</strong>
+          <span>내정보 · 로그인/프로필/테마</span>
+        </div>
+      </header>
+
+      <div class="layoutRow">
+        <aside class="sideNav" aria-label="카테고리">
+          <ul class="sideNavList">
+            <li><a class="sideNavLink" href="./home.html?skipLoading=1"><span class="ico">⌂</span><span class="label">홈</span></a></li>
+            <li><a class="sideNavLink" href="./search.html?skipLoading=1"><span class="ico">⌕</span><span class="label">탐색</span></a></li>
+            <li><a class="sideNavLink" href="./create.html?skipLoading=1"><span class="ico">＋</span><span class="label">만들기</span></a></li>
+            <li><a class="sideNavLink" href="./challenges.html?skipLoading=1"><span class="ico">🏁</span><span class="label">도전과제</span></a></li>
+            <li><a class="sideNavLink active" href="./account.html"><span class="ico">☺</span><span class="label">내정보</span></a></li>
+          </ul>
+        </aside>
+
+        <main class="page" aria-label="내정보">
+          <div class="sectionTitleRow">
+            <h2>계정</h2>
+          </div>
+
+          <div class="accountGrid">
+            <section class="cardPad" aria-label="로그인">
+              <div class="cardTitleRow">
+                <h3>로그인</h3>
+                <span class="badge" id="loginStatus">로그아웃</span>
+              </div>
+
+              <form id="loginForm" class="formCol">
+                <label class="field">
+                  <span>닉네임</span>
+                  <input id="nickname" type="text" placeholder="예: ijjiw" />
+                </label>
+                <label class="field">
+                  <span>이메일</span>
+                  <input id="email" type="email" placeholder="예: me@example.com" />
+                </label>
+                <div class="btnRow">
+                  <button class="pillBtn primary" type="submit">로그인</button>
+                  <button class="pillBtn" id="logoutBtn" type="button">로그아웃</button>
+                </div>
+              </form>
+            </section>
+
+            <section class="cardPad" aria-label="프로필">
+              <div class="cardTitleRow">
+                <h3>프로필</h3>
+                <span class="badge" id="pointsBadge">0 P</span>
+              </div>
+              <div class="profileRow">
+                <div class="avatar" aria-hidden="true"><span id="avatarEmoji">☺</span></div>
+                <div style="min-width:0">
+                  <div class="profileName" id="profileName">게스트</div>
+                  <div class="profileSub" id="profileEmail">로그인하면 이메일이 표시돼요</div>
+                </div>
+              </div>
+              <p class="helperText">포인트는 도전과제 보상 수령 시 올라갑니다. 아이콘·색 테마는 도전과제에서 잠금 해제돼요.</p>
+              <div class="cardTitleRow" style="margin-top:14px">
+                <h3 style="font-size:13px">프로필 아이콘</h3>
+              </div>
+              <div id="iconPicker" class="iconPicker" aria-label="프로필 아이콘 선택"></div>
+            </section>
+
+            <section class="cardPad" aria-label="테마">
+              <div class="cardTitleRow">
+                <h3>화면 테마</h3>
+                <span class="badge" id="themeBadge">Light</span>
+              </div>
+              <div class="btnRow">
+                <button class="pillBtn" type="button" data-theme="light">라이트</button>
+                <button class="pillBtn" type="button" data-theme="dark">다크</button>
+                <button class="pillBtn" type="button" id="systemThemeBtn">시스템</button>
+              </div>
+              <p class="helperText">라이트/다크는 모든 탭에 바로 적용돼요.</p>
+
+              <div class="cardTitleRow" style="margin-top:14px">
+                <h3 style="font-size:13px">색 테마</h3>
+                <span class="badge" id="paletteBadge">기본</span>
+              </div>
+              <div id="paletteRow" class="btnRow"></div>
+              <p class="helperText">도전과제에서 오션·선셋 팔레트를 열면 여기서 선택할 수 있어요.</p>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="./common.js"></script>
+    <script src="./state.js"></script>
+    <script src="./account.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./theme-boot.js"></script>
+    <title>버그도 기능이다. - 탐색</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <button class="menuToggle" type="button" aria-label="메뉴 열기">
+          <span class="menuToggleIcon"><span></span></span>
+        </button>
+        <div class="title">
+          <strong>버그도 기능이다.</strong>
+          <span>탐색 · 검색</span>
+        </div>
+      </header>
+
+      <div class="layoutRow">
+        <aside class="sideNav" aria-label="카테고리">
+          <ul class="sideNavList">
+            <li><a class="sideNavLink" href="./home.html?skipLoading=1"><span class="ico">⌂</span><span class="label">홈</span></a></li>
+            <li><a class="sideNavLink active" href="./search.html"><span class="ico">⌕</span><span class="label">탐색</span></a></li>
+            <li><a class="sideNavLink" href="./create.html?skipLoading=1"><span class="ico">＋</span><span class="label">만들기</span></a></li>
+            <li><a class="sideNavLink" href="./challenges.html?skipLoading=1"><span class="ico">🏁</span><span class="label">도전과제</span></a></li>
+            <li><a class="sideNavLink" href="./account.html?skipLoading=1"><span class="ico">☺</span><span class="label">내정보</span></a></li>
+          </ul>
+        </aside>
+
+        <main class="page" aria-label="탐색">
+          <div class="searchBar">
+            <span class="searchIcon">⌕</span>
+            <input id="searchInput" type="search" autocomplete="off" placeholder="강아지, 고양이, ASMR 같은 키워드를 입력하세요" />
+          </div>
+          <div class="searchHint" id="searchHint">
+            인기 키워드:
+            <button type="button" data-q="강아지">강아지</button>
+            <button type="button" data-q="고양이">고양이</button>
+            <button type="button" data-q="ASMR">ASMR</button>
+            <button type="button" data-q="힐링">힐링</button>
+          </div>
+
+          <div class="sectionTitleRow" style="margin-top:16px">
+            <h2 id="resultTitle">추천 게시판</h2>
+          </div>
+          <div class="feedList" id="searchResults"></div>
+        </main>
+      </div>
+    </div>
+
+    <script src="./common.js"></script>
+    <script src="./search.js"></script>
+  </body>
+</html>
+
